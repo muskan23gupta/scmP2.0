@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is my About page</h1>
+    <hr/>
+    <!--Using Fragment-->
+    <div th:replace="${isLogin} ? ~{base :: parent(~{::section})} : ~{base :: test}">
+        <section>
+            <h1>User is Logged In</h1>
+            <h2>Dynamic Content</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus labore voluptate dicta! Tenetur quaerat nobis voluptate perspiciatis. Sint omnis excepturi reprehenderit ab totam tenetur distinctio, ipsam reiciendis consequatur perspiciatis dolore!</p>
+            <button>Click On Dynamic Content</button>
+        </section>
+
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}"/>
+</head>
+
+<body>
+    <div class=" bg-gray-200 w-1/4 p-4 flex flex-col space-y-3 mx-auto justify-center items-center mt-4">
+        <h1 class="text-2xl" data-th-text="${name}">Welcome To Home Page</h1>
+		<p class="text-xl text-gray-700">
+            Youtube Channel: <span data-th-text="${YoutubeChannel}"> </span>
+        </p>
+		<p>
+           Github Repo Link: <span data-th-text="${GithubRepository}" ></span>
+        </p>
+		   <a data-th-href="${GithubRepository}" class="text-blue-600 hover:underline">Click here to open
+           </a>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam, alias eaque porro sequi fuga sit dolor facilis mollitia voluptate quam labore sint repellendus rerum tempore autem earum quae velit voluptatem!</p>
+
+        <button class="px-3 py-3 rounded bg-blue-700 text-white  hover:bg-blue-500">click here</button>
+    </div>
+
+    <!-- adding flow bite elements --> 
+<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+</body>
+</html>

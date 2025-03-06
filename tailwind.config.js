@@ -1,8 +1,8 @@
 export default {
-    content: ["./src/main/resources/*.{html,js}"], // Update this based on your file structure
+    content: ["./src/main/resources/templates/**/*.{html,js}"], // Update this based on your file structure
     theme: {
       extend: {},
     },
     plugins: [],
-    darkmodex:"selector",
+    darkMode:"class",
   };

@@ -3,9 +3,9 @@ console.log("Script Loaded");
 //start of change theme work 
 let currentTheme = getTheme();
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     changeTheme();
-})
+});
 changeTheme(currentTheme)
 
 function changeTheme(){
@@ -14,8 +14,9 @@ function changeTheme(){
 //console.log(currentTheme);
 const changeThemeButton = document.querySelector("#theme_change_button");
 currentTheme == "Light" ? "Dark" : "Light";
-const oldTheme = currentTheme;
+
 changeThemeButton.addEventListener("click", (event) => {
+    let oldTheme = currentTheme;
     console.log("change theme button clicked");
     if(currentTheme === "dark"){
         currentTheme = "light";
@@ -45,7 +46,9 @@ function getTheme(){
 function changePageTheme(theme,oldTheme){
     setTheme(currentTheme);
     //removethe current theme
-    document.querySelector("html").classList.remove(oldTheme);
+    if(oldTheme){
+        document.querySelector("html").classList.remove(oldTheme);
+    }
     //set the current theme
     document.querySelector("html").classList.add(theme);
     //change the text of button 

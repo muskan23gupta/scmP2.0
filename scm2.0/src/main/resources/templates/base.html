@@ -13,13 +13,14 @@ xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css
 ">
 </head>
-<body>
+<body class="dark-bg-gray-900 bg-gray-100 dark:text-white">
     <!--Common Header-->
    <div data-th-replace="~{navbar :: navbar}"></div>
     <!--Main Content-->
     <div class="pt-4 h-screen w-full dark:bg-gray-900">
         <section data-th-replace="${content}"></section>
     </div>
+
 
     <!--Common Footer-->
     <!-- adding flow bite elements --> 

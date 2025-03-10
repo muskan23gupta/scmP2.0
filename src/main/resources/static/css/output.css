@@ -1506,6 +1506,12 @@
   .border-gray-300 {
     border-color: var(--color-gray-300);
   }
+  .border-green-600 {
+    border-color: var(--color-green-600);
+  }
+  .border-green-700 {
+    border-color: var(--color-green-700);
+  }
   .bg-\(--my_variable\) {
     background-color: var(--my_variable);
   }

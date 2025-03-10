@@ -13,7 +13,7 @@ public class UserController {
     }
 
     //user profile page
-    @RequestMapping(value = "/profile")
+    @RequestMapping(value = "/user/profile")
     public String userProfile(){
         return "user/profile";
     }

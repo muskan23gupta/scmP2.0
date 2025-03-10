@@ -23,11 +23,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
+
 @Controller
 public class PageController {
 
     @Autowired
 	private UserService userService;
+
+	@GetMapping("/")
+	public String index() {
+		return "redirect:/home";
+	}
+	
 
 	@RequestMapping("/home")
 	public String home(Model mdl) {
@@ -100,6 +107,7 @@ public class PageController {
 	user.setAbout(userForm.getAbout());
 	user.setPhoneNumber(userForm.getPhoneNumber());
 	user.setProfilePic("https://images.app.goo.gl/6fdVyqhdbdyEYNL9A");
+
 
 
 		User savedUser = userService.saveUser(user);

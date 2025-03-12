@@ -1,3 +1,7 @@
+//1097753970638-has0j2kuo08p1ek0v253no0v9msg6gnf.apps.googleusercontent.com
+//client id and client secret 
+//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
+
 package com.scm.entities;
 
 import java.util.ArrayList;

@@ -3,6 +3,7 @@ package com.scm.config;
 
 import java.io.IOException;
 
+import org.apache.coyote.http11.AbstractHttp11Protocol;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -29,6 +31,9 @@ public class SecurityConfig {
 
     @Autowired
     private SecurityCustomUserDetailService userDetailService;
+
+    @Autowired
+    private OAuthAuthenticationSuccessHandler handler;
 
     //configuration ofauthenticatin provider for spring security
     @Bean
@@ -61,7 +66,7 @@ public class SecurityConfig {
             formLogin.loginProcessingUrl("/authenticate");
 
             formLogin.successForwardUrl("/user/dashboard");
-            formLogin.failureForwardUrl("/login?error=true");
+           // formLogin.failureForwardUrl("/login?error=true");
 
             formLogin.usernameParameter("email");
             formLogin.passwordParameter("password");
@@ -86,6 +91,18 @@ public class SecurityConfig {
           //      }
                 
           //  });
+            });
+
+            httpSecurity.csrf(AbstractHttpConfigurer :: disable);
+            httpSecurity.logout(logoutForm -> {
+                logoutForm.logoutUrl("/do-logout");
+                logoutForm.logoutSuccessUrl("/login?logout=true");
+            });
+
+            //oauth configuration with google
+            httpSecurity.oauth2Login(oauth -> {
+                oauth.loginPage("/login");
+                oauth.successHandler(handler);
             });
         return httpSecurity.build();
     }

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class UserController {
     //user dashboard page
-    @RequestMapping(value = "/dashboard")
+    @RequestMapping(value = "/user/dashboard")
     public String userDashboard(){
         return "user/dashboard";
     }

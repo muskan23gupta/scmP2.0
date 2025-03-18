@@ -57,12 +57,15 @@ public class OAuthAuthenticationSuccessHandler implements AuthenticationSuccessH
         user.setRoleList(List.of(AppConstants.ROLE_USER));
         user.setEmailVerified(true);
         user.setEnabled(true);
+        user.setPassword("dummy");
         if(authorizedClientRegistrationId.equalsIgnoreCase("google")){
 
             user.setEmail(oauthUser.getAttribute("email").toString());
             user.setProfilePic(oauthUser.getAttribute("picture").toString());
             user.setName(oauthUser.getAttribute("name").toString());
             user.setProviderUserId(oauthUser.getName());
+            user.setProvider(Providers.GOOGLE);
+            user.setAbout("This account is created using GOOGLE");
 
         }
 
@@ -70,14 +73,17 @@ public class OAuthAuthenticationSuccessHandler implements AuthenticationSuccessH
 
             String email = (oauthUser.getAttribute("email") != null) ? oauthUser.getAttribute("email").toString() : oauthUser.getAttribute("login").toString() +"@gmail.com";
             
-            String picture = oauthUser.getAttribute("avtar_url").toString();
+            String picture = oauthUser.getAttribute("avatar_url").toString();
             String name = oauthUser.getAttribute("login").toString();
             String providerUserId = oauthUser.getName();
+
 
             user.setEmail(email);
             user.setProfilePic(picture);
             user.setName(name);
             user.setProviderUserId(providerUserId);
+            user.setProvider(Providers.GITHUB);
+            user.setAbout("This account is created using GitHub");
 
         }
 

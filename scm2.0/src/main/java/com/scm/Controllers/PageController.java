@@ -59,12 +59,13 @@ public class PageController {
 		return "services";
 	}
 
+    //this is login page
 	@GetMapping("/login")
 	public String login() {
 		return new String("login");
 	}
 
-	
+	//this is registration controller-viewPage
 	@GetMapping("/register")
 	public String register(Model mdl) {
 		UserForm userForm = new UserForm();

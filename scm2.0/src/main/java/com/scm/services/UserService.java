@@ -12,5 +12,6 @@ Optional <User> updateUser(User user);
 void deleteUser(String id);
 boolean isUserExist(String userId);
 boolean isUserExistByEmail(String email);
-List<User> getAllUser();   
+List<User> getAllUser();  
+User getUserByEmail(String email); 
 }
